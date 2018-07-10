@@ -8,7 +8,8 @@ I like to track my work in a Notepad, with each line representing a TODO item. T
 Using a bug tracker, like Bugzilla, is good for team communication; but like all communication, it has costs:
 
 * Long page load times - a few seconds to load/save a page breaks the flow of prose in my head
-* Visually complex - There are multiple fields I never use, or always have the same value entered.  
+* Visually complex - There are multiple fields I never use, or always have the same value entered. 
+* Lots of scrolling - the ui complexity forces user to scroll, slowing down data entry 
 * Hard to search - There are too many bugs I am not interested in. I want a shortlist of what I am working on.
 * Not sure if formatted correctly - WYSIWYG comments would be nice.
 
@@ -20,7 +21,7 @@ I propose a kanban-style tracking tool. Each bug is represented as tile with the
 
 ### Bugs are Tiles
 
-Each Tile is decorated with
+Each Bug tile is decorated with
 
 * Short description
 * Bug number
@@ -51,17 +52,27 @@ Containers have decoration that is different than bugs
 * A way to hide bugs that match criterion
 * A way to show all open bugs that match container's criterion
 * A button to click to show Bugzilla list
+* A button to click to show new-bug defaults (component, tags, blockers, etc)
 
    
 ![](docs/bug-in-bug.png)
 
-## Implementation
+## Implementation Plan
 
-The biggest complication I see is finding/making a library that will be responsible for drawing, moving, and saving these tiles. Once this is available, the rest of the project can proceed.
+I imagine this implemented as a React/JSX app. The biggest complication I see is finding/making a library that will be responsible for drawing, moving, and saving these tiles. Once this is available, the rest of the project can proceed.
 
 ### Priorities
 
 1. Making dependent bugs - This is the most important because it is most like the Notepad tracking; the ability to make new bugs quickly in a component. This means there are component container tiles with some "+" button for adding bugs.
 2. Go to Bugzilla - So we can go to Bugzilla and do the rest of the markup that this UI can not do
 3. Drag-and-order - The visual ordering of the bugs in containers is important for organization despite the fact it does not change what is in Bugzilla.  At this point the tiles need not be tiles yet; maybe they are simple `div` or `li` on a page.  The click-and-drag is important here.
-4. 
+
+## Hopes and Dreams
+
+* Use Github too!
+* Manage Github<->Bugzilla cross-referenced bugs elegantly
+* Drag-and-drop bugs into issues, and reverse!
+
+## Existing Solutions
+
+Please add a PR with any existing solutions!
